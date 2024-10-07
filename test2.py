@@ -1,5 +1,5 @@
 import numpy as np
-from week2 import Neuron # Adjust the import based on your file structure
+from classes import Neuron # Adjust the import based on your file structure
 
 def test_neuron_forward():
     # Test case 1: Known weights and bias
