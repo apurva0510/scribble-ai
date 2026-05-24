@@ -1,2 +1,6 @@
-test2.py
-test4.py
+__pycache__/
+*.py[cod]
+.quickdrawcache/
+data/
+models/
+quickdraw_images/
