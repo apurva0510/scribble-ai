@@ -16,6 +16,7 @@ Scribble AI is an interactive doodle-recognition app built with Streamlit and Py
 .
 |-- app.py                 # Streamlit frontend and inference flow
 |-- download_data.py       # Google QuickDraw image downloader
+|-- inference.py           # Image preprocessing and prediction helpers
 |-- model.py               # CNN architecture and model save/load helpers
 |-- train.py               # PyTorch training script
 |-- requirements.txt       # Python dependencies

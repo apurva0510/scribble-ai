@@ -3,6 +3,7 @@ from pathlib import Path
 
 import torch
 import torch.nn as nn
+import numpy as np
 from PIL import Image
 from torch.utils.data import DataLoader, Dataset, random_split
 
@@ -34,8 +35,8 @@ class QuickDrawImageDataset(Dataset):
     def __getitem__(self, index):
         image_path, label = self.samples[index]
         image = Image.open(image_path).convert("L").resize((28, 28))
-        image_tensor = torch.tensor(list(image.getdata()), dtype=torch.float32)
-        image_tensor = image_tensor.view(1, 28, 28) / 255.0
+        image_array = np.array(image, dtype=np.float32) / 255.0
+        image_tensor = torch.tensor(image_array).view(1, 28, 28)
         return image_tensor, label
 
 
