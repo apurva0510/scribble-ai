@@ -1,0 +1,17 @@
+[project]
+name = "scribble-ai"
+version = "0.1.0"
+description = "Interactive doodle recognition with Streamlit and PyTorch"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy",
+    "pillow",
+    "quickdraw",
+    "streamlit",
+    "streamlit-drawable-canvas",
+    "torch",
+]
+
+[tool.uv]
+package = false

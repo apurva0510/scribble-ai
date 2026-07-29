@@ -1,6 +1,0 @@
-numpy
-Pillow
-quickdraw
-streamlit
-streamlit-drawable-canvas
-torch
