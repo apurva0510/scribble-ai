@@ -51,7 +51,7 @@ def main():
         except FileNotFoundError:
             st.error(
                 "No trained model found. Run "
-                "`python train.py --data-dir data/quickdraw` first."
+                "`uv run python train.py --data-dir data/quickdraw` first."
             )
             return
 

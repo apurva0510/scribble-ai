@@ -19,7 +19,8 @@ Scribble AI is an interactive doodle-recognition app built with Streamlit and Py
 |-- inference.py           # Image preprocessing and prediction helpers
 |-- model.py               # CNN architecture and model save/load helpers
 |-- train.py               # PyTorch training script
-|-- requirements.txt       # Python dependencies
+|-- pyproject.toml         # Project metadata and direct dependencies
+|-- uv.lock                # Reproducible dependency lockfile
 `-- README.md
 ```
 
@@ -34,7 +35,8 @@ models/                  # trained model checkpoints
 ## Setup
 
 ```bash
-python3 -m pip install -r requirements.txt
+uv python install
+uv sync
 ```
 
 ## Download Training Data
@@ -42,7 +44,7 @@ python3 -m pip install -r requirements.txt
 Download a small starter dataset:
 
 ```bash
-python3 download_data.py --classes ant cat dog --max-drawings 1000 --stroke-widths 4 5
+uv run python download_data.py --classes ant cat dog --max-drawings 1000 --stroke-widths 4 5
 ```
 
 This creates class folders under:
@@ -62,7 +64,7 @@ data/quickdraw/dog
 ## Train the Model
 
 ```bash
-python3 train.py --data-dir data/quickdraw --epochs 20
+uv run python train.py --data-dir data/quickdraw --epochs 20
 ```
 
 The trained checkpoint is saved to:
@@ -76,7 +78,7 @@ The checkpoint includes both model weights and class names, so the Streamlit app
 ## Run the App
 
 ```bash
-streamlit run app.py
+uv run streamlit run app.py
 ```
 
 Then draw a doodle and click **Predict**.
@@ -88,8 +90,8 @@ If no trained model is found, the app will show the training command needed to c
 A small local demo model can be trained with three classes:
 
 ```bash
-python3 download_data.py --classes ant cat dog --max-drawings 30 --stroke-widths 4 5
-python3 train.py --data-dir data/quickdraw --epochs 5
+uv run python download_data.py --classes ant cat dog --max-drawings 30 --stroke-widths 4 5
+uv run python train.py --data-dir data/quickdraw --epochs 5
 ```
 
 This is enough to test the full pipeline, but it is not meant to be highly accurate. For a portfolio demo, use more drawings per class and train for more epochs.
