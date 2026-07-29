@@ -5,3 +5,4 @@ data/
 models/
 quickdraw_images/
 .venv/
+.DS_Store
